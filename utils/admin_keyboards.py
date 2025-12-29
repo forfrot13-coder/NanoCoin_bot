@@ -306,9 +306,15 @@ def verification_keyboard(invite_link: str = None):
 def admin_help_keyboard():
     """کیبورد راهنمای ادمین"""
     keyboard = [
-        [InlineKeyboardButton("📚 راهنمای دستورات", callback_data="admin_help_commands")],
-        [InlineKeyboardButton("❓ سوالات متداول", callback_data="admin_help_faq")],
-        [InlineKeyboardButton("🔙 بازگشت", callback_data="admin_main")],
+        [InlineKeyboardButton("📖 تعریف بخش‌ها", callback_data="admin_help_section_definition")],
+        [InlineKeyboardButton("⌨️ دستورات اصلی", callback_data="admin_help_section_commands")],
+        [InlineKeyboardButton("🔗 مدیریت جوین", callback_data="admin_help_section_join")],
+        [InlineKeyboardButton("👥 مدیریت کاربران", callback_data="admin_help_section_users")],
+        [InlineKeyboardButton("🎮 مدیریت آیتم‌ها", callback_data="admin_help_section_items")],
+        [InlineKeyboardButton("📢 ارسال همگانی", callback_data="admin_help_section_broadcast")],
+        [InlineKeyboardButton("❓ سوالات متداول", callback_data="admin_help_section_faq")],
+        [InlineKeyboardButton("🚨 اضطراری", callback_data="admin_help_section_emergency")],
+        [InlineKeyboardButton("🔙 بازگشت به پنل", callback_data="admin_main")],
     ]
     return InlineKeyboardMarkup(keyboard)
 
