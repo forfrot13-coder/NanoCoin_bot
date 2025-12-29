@@ -25,6 +25,7 @@ from handlers.join_verification import (
     verify_join_callback, verify_join_check_callback,
     admin_join_test, admin_join_check_all, admin_join_remove_all_inactive,
     admin_join_confirm_remove_callback, admin_join_import_from_group, admin_join_stats,
+    admin_join_verify_test, admin_join_verify_all, admin_join_debug,
     register_join_verification_handlers
 )
 from jobs.background_jobs import setup_jobs
