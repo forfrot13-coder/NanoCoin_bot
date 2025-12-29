@@ -270,6 +270,29 @@ def get_timestamp() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
+def split_message(text: str, max_length: int = 4096) -> list:
+    """تقسیم پیام به قسمت‌های کوچکتر برای تلگرام"""
+    if len(text) <= max_length:
+        return [text]
+    
+    messages = []
+    lines = text.split('\n')
+    current_message = ""
+    
+    for line in lines:
+        if len(current_message) + len(line) + 1 <= max_length:
+            current_message += line + '\n'
+        else:
+            if current_message:
+                messages.append(current_message)
+            current_message = line + '\n'
+    
+    if current_message:
+        messages.append(current_message)
+    
+    return messages
+
+
 class PermissionChecker:
     """کلاس بررسی سطح دسترسی"""
     
