@@ -1,5 +1,26 @@
+# Telegram Bot
 python-telegram-bot==20.3
+
+# Database
 SQLAlchemy==2.0.15
-APScheduler==3.10.1
-python-dotenv==1.0.0
 psycopg2-binary==2.9.6
+
+# Background Jobs
+APScheduler==3.10.1
+
+# Environment
+python-dotenv==1.0.0
+
+# FastAPI Backend
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+
+# Security & Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Utilities
+aiofiles==23.2.1

@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  nanocoin:
+    build: .
+    container_name: nanocoin-game
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:///data/nanocoin.db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: PostgreSQL database
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: nanocoin-db
+  #   environment:
+  #     POSTGRES_USER: nanocoin
+  #     POSTGRES_PASSWORD: your_password_here
+  #     POSTGRES_DB: nanocoin
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+
+# volumes:
+#   postgres_data:
